@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycleHub | Premium Bicycles & Accessories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+        }
+
+        .logo i {
+            font-size: 32px;
+            color: #ff6b6b;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-actions a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        /* Filter Sidebar */
+        .filter-sidebar {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+
+        .filter-sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .filter-options {
+            list-style: none;
+        }
+
+        .filter-options li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-options input {
+            margin-right: 10px;
+        }
+
+        .price-range {
+            width: 100%;
+        }
+
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .product-details {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-details li {
+            margin-bottom: 5px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-details li i {
+            margin-right: 8px;
+            color: #3498db;
+        }
+
+        .add-to-cart {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .filter-sidebar {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Badge for products */
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-card {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bicycle"></i>
+                    <h1><a href="index.html" style="text-decoration: none; color: #eee;">CycleHub</a></h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for bicycles, parts, accessories...">
+                </div>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-heart"></i></a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <aside class="filter-sidebar">
+                <h2>Filters</h2>
+                
+                <div class="filter-group">
+                    <h3>Category</h3>
+                    <ul class="filter-options">
+                        <li><input type="checkbox" id="mountain"> <label for="mountain">Mountain Bikes</label></li>
+                        <li><input type="checkbox" id="road"> <label for="road">Road Bikes</label></li>
+                        <li><input type="checkbox" id="hybrid"> <label for="hybrid">Hybrid Bikes</label></li>
+                        <li><input type="checkbox" id="accessories"> <label for="accessories">Accessories</label></li>
+                        <li><input type="checkbox" id="parts"> <label for="parts">Parts</label></li>
+                    </ul>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Price Range</h3>
+                    <input type="range" class="price-range" min="0" max="10000" step="100">
+                    <div class="price-values">
+                        <span>$0</span>
+                        <span>$10,000</span>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Brand</h3>
+                    <ul class="filter-options">
+                        <li><input type="checkbox" id="trek"> <label for="trek">Trek</label></li>
+                        <li><input type="checkbox" id="specialized"> <label for="specialized">Specialized</label></li>
+                        <li><input type="checkbox" id="giant"> <label for="giant">Giant</label></li>
+                        <li><input type="checkbox" id="cannondale"> <label for="cannondale">Cannondale</label></li>
+                    </ul>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Rating</h3>
+                    <ul class="filter-options">
+                        <li><input type="checkbox" id="5star"> <label for="5star">★★★★★</label></li>
+                        <li><input type="checkbox" id="4star"> <label for="4star">★★★★☆ & Up</label></li>
+                        <li><input type="checkbox" id="3star"> <label for="3star">★★★☆☆ & Up</label></li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <main class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Mountain Bike">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pro Mountain Bike X1</h3>
+                        <p class="product-price"><a href="payment2.html" style="text-decoration: none;">$1,299.99</a></p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-cog"></i> 27-speed</li>
+                            <li><i class="fas fa-compress-alt"></i> Aluminum frame</li>
+                            <li><i class="fas fa-bicycle"></i> Dual suspension</li>
+                            <li><i class="fas fa-weight"></i> 13.2 kg</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Road Bike">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Speed Road Bike R200</h3>
+                        <p class="product-price">$1,899.99</p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-cog"></i> 22-speed</li>
+                            <li><i class="fas fa-compress-alt"></i> Carbon fiber frame</li>
+                            <li><i class="fas fa-bicycle"></i> Front suspension</li>
+                            <li><i class="fas fa-weight"></i> 8.5 kg</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="c1.webp" alt="Hybrid Bike">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Urban Hybrid H5</h3>
+                        <p class="product-price">$899.99</p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-cog"></i> 21-speed</li>
+                            <li><i class="fas fa-compress-alt"></i> Steel frame</li>
+                            <li><i class="fas fa-bicycle"></i> Rigid fork</li>
+                            <li><i class="fas fa-weight"></i> 11.8 kg</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Bike Helmet">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Aero Cycling Helmet</h3>
+                        <p class="product-price">$89.99</p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-shield-alt"></i> Safety certified</li>
+                            <li><i class="fas fa-wind"></i> Ventilation system</li>
+                            <li><i class="fas fa-weight"></i> 420 grams</li>
+                            <li><i class="fas fa-palette"></i> 5 color options</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="c1.webp" alt="Bike Light">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pro Bike Light Set</h3>
+                        <p class="product-price">$45.99</p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-lightbulb"></i> 1000 lumens</li>
+                            <li><i class="fas fa-battery-full"></i> USB rechargeable</li>
+                            <li><i class="fas fa-clock"></i> 10-hour runtime</li>
+                            <li><i class="fas fa-tint"></i> Waterproof</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="c2.webp" alt="Bike Lock">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ultra Secure Bike Lock</h3>
+                        <p class="product-price">$64.99</p>
+                        <ul class="product-details">
+                            <li><i class="fas fa-lock"></i> Pick resistant</li>
+                            <li><i class="fas fa-shield-alt"></i> Hardened steel</li>
+                            <li><i class="fas fa-ruler"></i> 90cm length</li>
+                            <li><i class="fas fa-weight"></i> 1.8 kg</li>
+                        </ul>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Basic search functionality
+        document.querySelector('.search-bar input').addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Basic filter functionality
+        document.querySelectorAll('.filter-options input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // This is a simplified version - in a real app you would filter based on product data
+                alert('Filter applied! This would filter products in a real application.');
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.closest('.product-card');
+                const title = product.querySelector('.product-title').textContent;
+                alert(`Added ${title} to cart!`);
+            });
+        });
+    </script>
+</body>
+</html>

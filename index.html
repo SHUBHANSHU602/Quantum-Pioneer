@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityShare - Local Marketplace</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🔄</span>
+                 Community Help Board
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="buysell.html">Share/Borrow</a></li>
+                  
+                        <li><a href=share.html>Buy/sell</a></li>
+                        <li><a href="help.html">Community/Help</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                <a href="login.html">  <button class="btn btn-outline">Login</button></a>
+                 <a href="login.html"> <button class="btn btn-primary">Sign Up</button></a>  
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Local Community Marketplace</h1>
+                <p>Buy, sell, and share items with your neighbors. Build a sustainable community together.</p>
+                <button class="btn btn-primary"><a href="share.html" style="text-decoration: none; color: #eee;" >Get Started</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Browse Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">🛋</div>
+                    <h3>Furniture</h3>
+                    <p>Find pre-loved furniture</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <p>Gadgets and devices</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👕</div>
+                    <h3>Clothing</h3>
+                    <p>Fashion and apparel</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🧸</div>
+                    <h3>Toys & Games</h3>
+                    <p>For kids and families</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Listings -->
+    <section class="listings">
+        <div class="container">
+            <h2 class="section-title">Recent Listings</h2>
+            <div class="listing-grid">
+                <!-- Listing 1 -->
+                <div class="listing-card">
+                    <img src="/dinig table.webp" alt="Wooden Table" class="listing-image">
+                    <div class="listing-content">
+                        <h3 class="listing-title"><a href="furnit.html" style="text-decoration: none;"> Dining Table</a></h3>
+                        <p class="listing-price"><a href="payment.html" style="text-decoration: none;">$99.99</a></p>
+                        <p class="listing-location">📍 Dowtown • 2 miles away</p>
+                        <p>Solid wood table in excellent condition. Perfect for family dinners.</p>
+                        <div class="listing-actions">
+                            <button class="btn btn-outline">Save</button>
+                            <button class="btn btn-primary">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 2 -->
+                <div class="listing-card">
+                    <img src="/mountain bike.webp" alt="Bicycle" class="listing-image">
+                    <div class="listing-content">
+                        <h3 class="listing-title"><a href="cycle.html" style="text-decoration: none;"> Bike</a></h3>
+                        <p class="listing-price"><a href="payment.html" style="text-decoration: none;">$99.99</a></p>
+                        <p class="listing-location">📍 West Side • 1.5 miles away</p>
+                        <p>Lightly used mountain bike. Great for trails and commuting.</p>
+                        <div class="listing-actions">
+                            <button class="btn btn-outline">Save</button>
+                            <button class="btn btn-primary">Contact</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 3 -->
+                <div class="listing-card">
+                    <img src="/OPAC.jpeg" alt="Books" class="listing-image">
+                    <div class="listing-content">
+                        <h3 class="listing-title">Book Collection</h3>
+                        <p class="listing-price">Free</p>
+                        <p class="listing-location">📍 East Side • 0.8 miles away</p>
+                        <p>Various fiction books. Free to a good home!</p>
+                        <div class="listing-actions">
+                            <button class="btn btn-outline">Save</button>
+                            <button class="btn btn-primary">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CommunityShare</h3>
+                    <p>Connecting neighbors through sustainable commerce and sharing.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Join Our Community</h3>
+                    <p>Download our app and start trading today!</p>
+                    <button class="btn btn-primary">Download App</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click listeners to category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    alert('Category selected: ' + this.querySelector('h3').textContent);
+                });
+            });
+
+            // Add functionality to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.textContent === 'Contact') {
+                        alert('Contact form would open here!');
+                    } else if (this.textContent === 'Save') {
+                        this.textContent = 'Saved!';
+                        this.style.backgroundColor = '#4CAF50';
+                        this.style.color = 'white';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

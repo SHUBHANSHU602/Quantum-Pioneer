@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Gateway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: #6c5ce7;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background: #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .product-image i {
+            font-size: 60px;
+            color: #6c5ce7;
+        }
+        
+        .product-details {
+            margin-bottom: 20px;
+        }
+        
+        .product-details h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .product-details p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #6c5ce7;
+            margin: 10px 0;
+        }
+        
+        .payment-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #6c5ce7;
+            box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+            outline: none;
+        }
+        
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .row .form-group {
+            flex: 1;
+        }
+        
+        .footer {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #5649c5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+        
+        .secure-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .secure-note i {
+            margin-right: 8px;
+            color: #6c5ce7;
+        }
+        
+        .accepted-cards {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .accepted-cards p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .card-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .card-icons i {
+            font-size: 28px;
+            color: #444;
+        }
+        
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+            
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Secure Payment Gateway</h1>
+        </div>
+        
+        <div class="main">
+            <div class="product-info">
+                <div class="product-image">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                
+                <div class="product-details">
+                    <h3>Premium Web Hosting Package</h3>
+                    <p>Includes unlimited bandwidth, 100GB storage, free domain for one year, and 24/7 customer support.</p>
+                </div>
+                
+                <div class="price">$1299.99/year</div>
+            </div>
+            
+            <div class="payment-form">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardName">Name on Card</label>
+                        <input type="text" id="cardName" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiration Date</label>
+                            <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john.doe@example.com" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Pay Now - $1299.99</button>
+                    
+                    <div class="secure-note">
+                        <i class="fas fa-lock"></i>
+                        <span>Your payment is secured with SSL encryption</span>
+                    </div>
+                </form>
+                
+                <div class="accepted-cards">
+                    <p>We accept:</p>
+                    <div class="card-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-discover"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Your Company Name. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardName = document.getElementById('cardName').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            const email = document.getElementById('email').value;
+            
+            if (cardNumber.trim() === '' || cardName.trim() === '' || 
+                expiryDate.trim() === '' || cvv.trim() === '' || email.trim() === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real application, you would process the payment here
+            // For this example, we'll simulate a successful payment
+            alert('Payment processed successfully! Redirecting to confirmation page...');
+            
+            // Redirect to buy page (replace with your actual URL)
+            setTimeout(function() {
+                window.location.href = 'https://example.com/confirmation';
+            }, 1000);
+        });
+        
+        // Format card number input
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 16) value = value.slice(0, 16);
+            
+            // Add spaces after every 4 digits
+            let formattedValue = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formattedValue += ' ';
+                formattedValue += value[i];
+            }
+            
+            e.target.value = formattedValue;
+        });
+        
+        // Format expiration date input
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 4) value = value.slice(0, 4);
+            
+            if (value.length > 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+            
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
