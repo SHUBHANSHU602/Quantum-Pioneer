@@ -26,4 +26,51 @@ The **Community Help Board** allows users to **buy/sell**, **borrow/rent**, and 
 ---
 
 ## 📁 Project Structure
+community-help-board/
+│
+├── index.html              # Main entry page
+├── buy-sell.html           # Buy/Sell section
+├── borrow-rent.html        # Borrow/Rent section
+├── help-support.html       # Help & Support section
+│
+├── /css
+│   └── style.css           # Stylesheet for all pages
+│
+├── /js
+│   └── script.js           # Main JavaScript logic
+│
+└── README.md               # Project documentation
+🧩 How to Run Locally
+
+1.Clone this repository:
+
+git clone https://github.com/your-username/community-help-board.git
+
+2.Navigate to the project folder:
+
+cd community-help-board
+
+3.Open index.html in your browser to get started.
+
+💡 Future Enhancements
+
+🔐 Add user authentication (login/signup)
+
+💬 Integrate a real-time chat or messaging feature
+
+📱 Build a mobile-friendly version or PWA
+
+☁️ Connect to a backend (e.g., Firebase or Node.js) for data persistence
+
+
+## 🧩 How to Run Locally
+
+1. Clone this repository:
+  
+   git clone https://github.com/@SHUBHANSHU602/community-help-board.git
+2.Navigate to the project folder:
+
+
+cd Quantum-Pioneer
+3.Open index.html in your browser to get started.
 
