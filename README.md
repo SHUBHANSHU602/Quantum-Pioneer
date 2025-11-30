@@ -11,7 +11,7 @@ The **Community Help Board** allows users to **buy/sell**, **borrow/rent**, and 
 - 🔄 **Borrow/Rent Page** – Allows users to borrow or rent items instead of purchasing them outright.  
 - 💬 **Help & Support Page** – A dedicated space for offering or requesting help, support, and services from neighbors or community members.  
 - 🌐 **Responsive Design** – Fully responsive layout that adapts to different screen sizes.  
-- ⚡ **Interactive UI** – Built with vanilla JavaScript for smooth user interaction and DOM manipulation.
+- ⚡ **Interactive UI** – Built with vanilla JavaScript for smooth user interaction and DOM manipulation.Also have dark  and white mode toggle.
 
 ---
 
