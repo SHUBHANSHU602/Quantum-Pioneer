@@ -63,14 +63,5 @@ cd community-help-board
 ☁️ Connect to a backend (e.g., Firebase or Node.js) for data persistence
 
 
-## 🧩 How to Run Locally
 
-1. Clone this repository:
-  
-   git clone https://github.com/@SHUBHANSHU602/community-help-board.git
-2.Navigate to the project folder:
-
-
-cd Quantum-Pioneer
-3.Open index.html in your browser to get started.
 
